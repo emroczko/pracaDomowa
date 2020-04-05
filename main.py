@@ -20,9 +20,9 @@ app.counter = 0
 class HelloResp(BaseModel):
     msg: str
 
-#@app.get("/")
-#def root():
-#    return {"method": "Hello World"}
+@app.get("/")
+def root():
+    return {"method": "Hello World"}
 
 
 @app.get('/counter')
@@ -33,4 +33,4 @@ def counter():
 
 @app.get("/", response_model=HelloResp)
 async def read_item(name: str):
-    return f"{'method': HelloResp}"
+    return HelloResp(msg=f"Hello {name}")
